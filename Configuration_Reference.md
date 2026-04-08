@@ -55,7 +55,7 @@ Server entries use TOML's array-of-tables syntax (`[[server]]`). At least one se
 
 ```toml
 [[server]]
-host = "time.cloudflare.com"
+host = "nts1.ntp.hr"
 ke_port = 4460
 native_certs = false
 prefer = true
@@ -72,6 +72,8 @@ host = "ptbtime1.ptb.de"
 | Server | Stratum | Location | Notes |
 |--------|---------|----------|-------|
 | `time.cloudflare.com` | 3 | Anycast | Widely used, good global coverage |
+| `nts1.ntp.hr` | 1 | Croatia | |
+| `nts2.ntp.hr` | 1 | Croatia | |
 | `ntppool1.time.nl` | 1 | Netherlands | |
 | `ptbtime1.ptb.de` | 1 | Germany | Strict anti-amplification |
 | `ptbtime2.ptb.de` | 1 | Germany | Strict anti-amplification |
@@ -113,7 +115,7 @@ host = "time.cloudflare.com"
 prefer = true
 
 [[server]]
-host = "ntppool1.time.nl"
+host = "nts1.ntp.hr"
 
 [[server]]
 host = "ptbtime1.ptb.de"
