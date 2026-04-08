@@ -72,32 +72,32 @@ nts-sync-tray.exe
 
 Or, if installed via the installer, enable the "Start tray monitor on login" option. This creates a scheduled task that launches the tray monitor at user logon.
 
-Only one instance can run at a time — launching a second instance will silently exit.
+Only one instance can run at a time - launching a second instance will silently exit.
 
 ### Icon States
 
 | Icon Color | Meaning |
 |------------|---------|
-| Green | Synchronized — clock is in sync |
-| Yellow | Transitional — sync in progress (initial key exchange or convergence) |
-| Red | Error — sync failures or service errors |
-| Grey | Offline — shows categorized reason: "Service not running", "Access denied", "Service busy", or "Connection timed out" |
+| Green | Synchronized - clock is in sync |
+| Yellow | Transitional - sync in progress (initial key exchange or convergence) |
+| Red | Error - sync failures or service errors |
+| Grey | Offline - shows categorized reason: "Service not running", "Access denied", "Service busy", or "Connection timed out" |
 
 ### Tooltip and Context Menu
 
 - **Tooltip**: Hover over the icon to see current status, offset, and server name.
 - **Context menu** (right-click):
   - Status summary with offset (read-only)
-  - Sources submenu — per-source offsets, selected source marked with checkmark
-  - Tracking — frequency, discipline mode, leap indicator (read-only)
-  - Reload Config — sends reload command to service (requires elevation)
-  - Open logs folder — opens `%ProgramData%\nts-sync\logs\` in Explorer
+  - Sources submenu - per-source offsets, selected source marked with checkmark
+  - Tracking - frequency, discipline mode, leap indicator (read-only)
+  - Reload Config - sends reload command to service (requires elevation)
+  - Open logs folder - opens `%ProgramData%\nts-sync\logs\` in Explorer
   - Exit
 
 ### Behavior
 
 - Polls the service every **5 seconds** when connected, **15 seconds** when offline
-- Uses named pipe IPC (`\\.\pipe\nts-sync`) — requires no additional network access
+- Uses named pipe IPC (`\\.\pipe\nts-sync`) - requires no additional network access
 - Connects once per poll cycle via atomic `Snapshot` request (returns status, sources, and tracking in one response)
 - Automatically reconnects when the service restarts
 
